@@ -9,8 +9,15 @@ type Props = {
   open: boolean;
   onClose: () => void;
   onClear: () => void;
+  onNewChat: () => void;
 };
-export const Sidebar = ({ children, open, onClose, onClear }: Props) => {
+export const Sidebar = ({
+  children,
+  open,
+  onClose,
+  onClear,
+  onNewChat,
+}: Props) => {
   return (
     <section
       className={`fixed left-0 top-0 bottom-0 text-white ${
@@ -23,7 +30,10 @@ export const Sidebar = ({ children, open, onClose, onClear }: Props) => {
         } md:ml-0`}
       >
         <div className="flex flex-col w-64 p-2 bg-gray-900">
-          <div className="flex items-center p-3 rounded-md text-sm cursor-pointer border border-white/20 hover:bg-gray-500/20">
+          <div
+            onClick={onNewChat}
+            className="flex items-center p-3 rounded-md text-sm cursor-pointer border border-white/20 hover:bg-gray-500/20"
+          >
             <IconAdd width={16} height={16} className="mr-3" />
             Nova conversa
           </div>
